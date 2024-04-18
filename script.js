@@ -1,18 +1,14 @@
-//your JS code here. If required.
-function mapLetters(str){
-	
-	let obj={};
-for(let i=0;i<str.length;i++){
-  if(!obj.hasOwnProperty(str[i])){
-    obj[str[i]]=[i]
+function mapLetters(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    if (!obj[str[i]]) {
+      obj[str[i]] = [i];
+    } else {
+      obj[str[i]].push(i);
+    }
   }
-  else{
-    let arr=obj[str[i]];
-    arr.push(i);
-  }
+  return obj;
 }
-
-return obj;
-}
-
-module.exports = mapLetters
+// Do not change the code below
+const str = prompt("Enter str: ");
+alert(JSON.stringify(mapLetters(str)));
